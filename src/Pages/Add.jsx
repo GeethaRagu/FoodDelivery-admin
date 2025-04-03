@@ -3,6 +3,7 @@ import * as Yup from "yup";
 import React, { useEffect, useState } from "react";
 import { assets } from "../assets/admin_assets/assets";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const Add = () => {
   const [image, setImage] = useState(false);
@@ -30,7 +31,8 @@ const Add = () => {
     await axios
       .post(`${apiurl}/api/food/add`, formData)
       .then((res) => {
-        console.log(res.data);
+        //console.log(res.data);
+        toast.success("Food Item added successfully");
       })
       .catch((error) => console.log(error));
   };
